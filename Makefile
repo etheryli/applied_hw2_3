@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_QML_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I. -I. -I../../Qt/5.9.1/gcc_64/include -I../../Qt/5.9.1/gcc_64/include/QtGui -I../../Qt/5.9.1/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I../../Qt/5.9.1/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/dnhung7/Qt/5.9.1/gcc_64/bin/qmake
 DEL_FILE      = rm -f
@@ -213,6 +213,7 @@ DIST          = ../../Qt/5.9.1/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -403,6 +404,7 @@ Makefile: applied_hw2_3.pro ../../Qt/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf .
 		../../Qt/5.9.1/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt/5.9.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -584,6 +586,7 @@ Makefile: applied_hw2_3.pro ../../Qt/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf .
 ../../Qt/5.9.1/gcc_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.9.1/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../Qt/5.9.1/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/5.9.1/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.9.1/gcc_64/mkspecs/features/toolchain.prf:
 ../../Qt/5.9.1/gcc_64/mkspecs/features/default_pre.prf:
@@ -651,7 +654,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../Qt/5.9.1/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h ../../Qt/5.9.1/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h ../../Qt/5.9.1/gcc_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all:
 compiler_moc_header_clean:

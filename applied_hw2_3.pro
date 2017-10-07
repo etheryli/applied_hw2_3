@@ -5,7 +5,7 @@
 TEMPLATE = app
 TARGET = applied_hw2_3
 INCLUDEPATH += .
-
+CONFIG += c++11
 # Input
 HEADERS += library.h
 SOURCES += library.cpp libraryClient.cpp
